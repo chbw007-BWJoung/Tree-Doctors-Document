@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#173f5f">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="수목 진료 및 진단.처방 양식 등">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<title>수목 진료 및 진단.처방 양식 등</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f7fa;color:#172033;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:#173f5f;color:#fff;padding:24px 18px 20px;text-align:center}
+header h1{margin:0;font-size:28px}header p{margin:7px 0 0;opacity:.9}
+main{max-width:760px;margin:0 auto;padding:18px 14px 100px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{display:flex;align-items:center;gap:12px;min-height:92px;background:#fff;border:1px solid #dce3eb;border-radius:18px;padding:14px;text-decoration:none;color:inherit;box-shadow:0 3px 12px rgba(20,35,55,.06)}
+.card .ico{font-size:30px}.card b{font-size:17px}.card small{display:block;color:#667085;margin-top:4px}
+.wide{grid-column:1/-1}.section{margin:18px 2px 9px;font-weight:800;color:#344054}
+.install{background:#fff;border-radius:16px;padding:14px;border:1px solid #dce3eb;line-height:1.6;color:#475467}
+nav{position:fixed;left:0;right:0;bottom:0;z-index:10;background:rgba(255,255,255,.97);border-top:1px solid #d8dee8;display:flex;justify-content:center;gap:6px;padding:7px 8px calc(7px + env(safe-area-inset-bottom));box-shadow:0 -3px 14px rgba(0,0,0,.08)}
+nav a{flex:1;max-width:150px;text-decoration:none;text-align:center;color:#344054;background:#f5f7fa;border-radius:12px;padding:8px 4px;font-size:12px;font-weight:700;line-height:1.25}nav a.active{background:#173f5f;color:#fff}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.wide{grid-column:auto}}
+</style>
+</head>
+<body>
+<header><h1>🌳 수목 진료 및 진단.처방 양식 등</h1><p>수목 진단·처방·진료·기초현황조사를 한 곳에서</p></header>
+<main>
+<div class="section">작성 서식</div>
+<div class="grid">
+<a class="card" href="diagnosis/index.html"><span class="ico">🩺</span><span><b>수목진단서</b><small>진단 결과 및 처방 근거 작성</small></span></a>
+<a class="card" href="prescription/index.html"><span class="ico">💊</span><span><b>처방전</b><small>치료·처치 및 농약 처방 작성</small></span></a>
+<a class="card" href="jinryobu/index.html"><span class="ico">📋</span><span><b>진료부</b><small>수목 진료 기록 작성</small></span></a>
+<a class="card" href="survey/index.html"><span class="ico">🌳</span><span><b>기초현황조사표</b><small>I형 집단목 현황 조사</small></span></a>
+<a class="card" href="opinion/index.html"><span class="ico">📝</span><span><b>나무의사 소견서</b><small>소견 및 참고사항 작성·출력</small></span></a>
+<a class="card" href="resources.html"><span class="ico">🔎</span><span><b>병해충·생물 정보 검색</b><small>수목 병해·해충 DB, 국가 생물종·농약안전정보</small></span></a>
+<a class="card wide" href="profile.html"><span class="ico">👤</span><span><b>내 기본정보</b><small>나무병원·나무의사 정보를 한 번 입력하면 서식에 자동 반영</small></span></a>
+<a class="card wide" href="manager.html"><span class="ico">📁</span><span><b>작성자료 관리</b><small>저장된 문서함·PC↔휴대폰 동기화·백업·복원</small></span></a>
+</div>
+<div class="section">설치 안내</div>
+<div class="install">휴대폰 브라우저에서 이 사이트를 열고 <b>홈 화면에 추가</b>하면 앱처럼 사용할 수 있습니다. 네트워크가 끊겨도 이미 방문한 서식은 오프라인에서 사용할 수 있습니다.</div>
+</main>
+<nav><a href="index.html" class="active">🏠<br>홈</a><a href="diagnosis/index.html" class="">🩺<br>진단서</a><a href="prescription/index.html" class="">💊<br>처방전</a><a href="jinryobu/index.html" class="">📋<br>진료부</a><a href="survey/index.html" class="">🌳<br>기초조사</a><a href="profile.html" class="">👤<br>기본정보</a><a href="manager.html" class="">📁<br>자료관리</a><a href="opinion/index.html" class="">📝<br>소견서</a><a href="resources.html" class="">🔎<br>생물정보</a></nav>
+<script>
+if('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
+</script>
+<script src="supabase-config.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="sync.js"></script></body></html>

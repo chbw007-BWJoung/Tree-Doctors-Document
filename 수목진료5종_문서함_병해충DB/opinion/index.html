@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>소견서</title>
+<meta name="theme-color" content="#173f5f">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" href="../icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#e9e7e1;--bar:#fff;--fg:#1d1d1b;--ac:#1f6f4a;--bd:#cfcbc0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1c1a;--bar:#262724;--fg:#eee;--ac:#4cb383;--bd:#3a3b38}}
+:root[data-theme="dark"]{--bg:#1b1c1a;--bar:#262724;--fg:#eee;--ac:#4cb383;--bd:#3a3b38}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;padding-bottom:84px;background:var(--bg);color:var(--fg);font-family:'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif}
+#bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:8px;padding:8px;background:var(--bar);border-bottom:1px solid var(--bd);flex-wrap:wrap}
+button{font:inherit;border:1px solid var(--bd);background:var(--bar);color:var(--fg);border-radius:10px;padding:10px 14px;min-height:44px}
+button.p{background:var(--ac);color:#fff;border-color:var(--ac)}
+#msg{align-self:center;font-size:13px;opacity:.8}
+#wrap{width:794px;margin:8px auto}
+.page{position:relative;width:794px;background:#fff;color:#111;padding:30px 38px 82px}
+.frm{overflow:hidden;margin-top:6px;border-top:var(--k,2px) solid #111;border-bottom:var(--k,2px) solid #111}.sep{margin-top:0}.fb{margin-top:6px;border-top:var(--k,2px) solid #111}.frm.thk{border-bottom-width:3px}.frm table{margin:calc(var(--t,1px) * -1) 0 calc(var(--t,1px) * -1) calc(var(--t,1px) * -2);width:calc(100% + var(--t,1px) * 4)}
+.endline{margin-top:10px;border-top:var(--e,3px) solid #111}
+.sm{font-size:11px}.ti{text-align:center;font-size:28px;letter-spacing:.6em;font-weight:700;margin:14px 0 10px}
+table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px;margin-top:6px}
+th,td{border:var(--t,1px) solid #111;padding:3px 6px;height:32px;vertical-align:middle;word-break:break-all}
+th{background:#f1f1ee;font-weight:600;text-align:center;font-size:12px}
+.v{cursor:pointer;background:#fffef6}
+td.v:empty::after{content:'탭';color:#c9c6b8;font-size:11px}
+td.tall{height:84px;vertical-align:top}td.tall2{height:160px;vertical-align:top}td.dxh{height:221px}td.rxh{height:61px}
+td.ck{text-align:center}.bx{cursor:pointer;display:block;height:27px;line-height:27px;background:#fffef6}
+td .t,.v .t{white-space:pre-wrap}
+table.hd th,table.hd td{height:26px;padding-top:1px;padding-bottom:1px}
+table.hd td.ck{white-space:nowrap;padding:0}
+.frm th{white-space:nowrap;padding:1px 3px;line-height:1.2}
+td.nt{font-size:12px;height:26px;border-top:none}
+table.ft td{border:none;font-size:13px;height:26px;padding:1px 4px;white-space:nowrap}
+table.ft td.r{text-align:right;font-size:12px}
+table.ft td.c{text-align:center}
+td.v.sg:empty::after{content:'(서명 또는 인)';color:#111;font-size:11px}
+.dtv{display:inline-block;min-width:190px;padding:2px 8px;text-align:center}
+body.exp .v,body.exp .bx{background:none!important}
+body.exp td.v:empty::after{content:''}
+body.exp td.v.sg:empty::after{content:'(서명 또는 인)'}
+#ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100000;display:flex;align-items:flex-end;justify-content:center}
+#ov[hidden]{display:none}
+#sh{background:var(--bar);color:var(--fg);width:min(760px,100%);border-radius:16px 16px 0 0;padding:14px 14px calc(14px + env(safe-area-inset-bottom,0px))}
+#tt{font-weight:700;margin-bottom:8px}.tabs{display:flex;gap:8px;margin-bottom:8px}.tabs .on{background:var(--ac);color:#fff;border-color:var(--ac)}
+#ta{width:100%;height:220px;font:inherit;font-size:20px;padding:10px;border:1px solid var(--bd);border-radius:10px;background:#fff;color:#111;resize:none}
+#cv{width:100%;height:200px;border:1px solid var(--bd);border-radius:10px;background:#fff;touch-action:none;display:none}
+#dt{display:none;align-items:center;gap:6px;font-size:20px;flex-wrap:wrap}
+#dt input{width:84px;font:inherit;font-size:22px;padding:10px;border:1px solid var(--bd);border-radius:10px;background:#fff;color:#111;text-align:center}
+#dt input#dy{width:110px}
+.acts{display:flex;gap:8px;margin-top:10px}.acts button{flex:1}.acts .p{flex:2}
+#integratedNav{position:fixed;left:0;right:0;bottom:0;z-index:99999;background:rgba(255,255,255,.97);border-top:1px solid #d8dee8;display:flex;justify-content:center;gap:3px;padding:7px 6px calc(7px + env(safe-area-inset-bottom));box-shadow:0 -3px 14px rgba(0,0,0,.08)}
+#integratedNav a{flex:1 0 auto;max-width:150px;text-decoration:none;text-align:center;color:#344054;background:#f5f7fa;border-radius:12px;padding:8px 2px;font-size:10.5px;font-weight:700;line-height:1.25;white-space:nowrap}
+#integratedNav a.active{background:#173f5f;color:#fff}
+</style><script src="../docstore.js"></script>
+</head><body>
+<div id="bar"><button class="p" id="bp">PDF 저장</button><button class="p" id="bw">Word 저장</button><button id="br">초기화</button><span id="msg"></span></div>
+<div id="wrap"></div>
+<div id="ov" hidden><div id="sh"><div id="tt"></div>
+<div class="tabs"><button data-t="type" class="on">타이핑</button><button data-t="pen">손글씨</button></div>
+<textarea id="ta" placeholder="여기에 입력"></textarea>
+<div id="dt"><input id="dy" inputmode="numeric" maxlength="4">년<input id="dm" inputmode="numeric" maxlength="2">월<input id="dd" inputmode="numeric" maxlength="2">일<button id="dtoday" type="button">오늘</button></div>
+<canvas id="cv"></canvas>
+<div class="acts"><button id="cl">지우기</button><button id="cc">취소</button><button id="ok" class="p">입력</button></div></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const KEY='tree-opinion-v1';
+let S={};
+(function(){
+ const rd=k=>{try{return JSON.parse(localStorage.getItem(k)||'null')}catch(e){return null}};
+ const o=rd(KEY);
+ if(o&&o.data&&typeof o.data==='object'){ /* 직전 버전(입력칸 순번 저장) 자료 이관 */
+  const d=o.data,M={v1:'name',v2:'valid',v3:'tel',v4:'addr',v5:'kind',v6:'cnt',v7:'age',v8:'ht',v9:'dbh',v10:'sun',v11:'dens',v12:'ph',v13:'hum',v14:'etc',v15:'leaf',v16:'stem',v17:'root',v18:'dx',v19:'rx',v21:'hn',v22:'ha',v23:'hno',v24:'dr',v25:'dno'};
+  const kd=x=>{const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(x||'');return m?(+m[1])+'년 '+(+m[2])+'월 '+(+m[3])+'일':''};
+  Object.keys(M).forEach(k=>{const t=String(d[k]||'').trim();if(t)S[M[k]]=t});
+  if(kd(d.d0))S.date=kd(d.d0);if(kd(d.d20))S.idate=kd(d.d20);
+ }else if(o&&typeof o==='object'&&!(o.v&&typeof o.v==='object'))S=o;
+ else{const old=rd('sogyeon-form-v1');if(old&&typeof old==='object')S=old}
+})();
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const DATES=new Set(['date','idate']);
+const today=()=>{const d=new Date();return d.getFullYear()+'년 '+(d.getMonth()+1)+'월 '+d.getDate()+'일'};
+const DEFS={name:'정 병 욱'};
+const PMAP={hn:'hospitalName',hno:'hospitalReg',ha:'address',htel:'phone',dr:'doctorName',dno:'doctorLicense'};
+const prof=()=>{try{return JSON.parse(localStorage.getItem('treeDiagnosisProfile')||'{}')}catch(e){return{}}};
+const val=k=>S[k]!==undefined?S[k]:(DATES.has(k)?today():((PMAP[k]&&String(prof()[PMAP[k]]||'').trim())||DEFS[k]||''));
+const TH=t=>`<th>${t}</th>`,V=(k,l,s=1,c='')=>`<td class="v ${c}" data-k="${k}" data-l="${l}" colspan="${s}"></td>`;
+const bx=(c,t)=>`<div class="bx" data-c="${c}"><span class="cb"></span> ${t}</div>`;
+const R=(...c)=>'<tr>'+c.join('')+'</tr>';
+const G=(t,n)=>`<th rowspan="${n}">${t}</th>`;
+const cg=a=>'<colgroup>'+a.map(w=>`<col width="${w}%">`).join('')+'</colgroup>';
+
+const head=`<table class="hd">${cg([12,29,15,14,30])}`+
+R(TH('진료 일자'),V('date','진료 일자',1,'c'),`<td rowspan="2" class="ck">${bx('o','소유자')}${bx('m','관리자')}</td>`,TH('성명'),V('name','성명'))+
+R(TH('유효기간'),V('valid','유효기간'),TH('전화번호'),V('tel','전화번호'))+'</table>';
+
+const t1=`<table class="t1">${cg([12,12,32,14,30])}`+
+R(G('수목의<br>표시',3),TH('소 재 지'),V('addr','소재지'),TH('수목의 종류'),V('kind','수목의 종류'))+
+R(TH('본수 또는<br>식재면적'),V('cnt','본수 또는 식재면적'),TH('식재연도 또는<br>수목의 나이'),V('age','식재연도 또는 수목의 나이'))+
+R(TH('수목의 높이'),V('ht','수목의 높이'),TH('흉고직경'),V('dbh','흉고직경'))+'</table>';
+
+const t2=`<table>${cg([12,12,21,11,18,11,15])}`+
+R(G('생육환경',3),TH('햇빛 조건'),V('sun','햇빛 조건',5))+
+R(TH('토양 견밀도'),V('dens','토양 견밀도'),TH('토양 산도'),V('ph','토양 산도'),TH('토양 습도'),V('hum','토양 습도'))+
+R(TH('관리사항<br>및 기타'),V('etc','관리사항 및 기타',5))+'</table>';
+
+const t3=`<table>${cg([12,14,74])}`+
+R(G('수목의<br>상태',3),TH('잎'),V('leaf','잎'))+R(TH('줄기 및 수간'),V('stem','줄기 및 수간'))+R(TH('뿌리'),V('root','뿌리'))+'</table>';
+
+const t4=`<table>${cg([12,88])}`+R(TH('나무의사<br>소견'),V('dx','나무의사 소견',1,'tall2 dxh'))+'</table>';
+const t5=`<table>${cg([12,88])}`+R(TH('참고사항'),V('rx','참고사항',1,'tall2 rxh'))+'</table>';
+
+const ft=`<table class="ft" style="margin-top:4px"><tr><td class="c" style="height:26px">발급 일자: <span class="v dtv" data-k="idate" data-l="발급 일자"></span></td></tr></table>`+
+`<div class="sep"><table class="ft">${cg([18,14,20,25,17,6])}`+
+R('<td class="r">나무병원 명칭:</td>',V('hn','나무병원 명칭',2),'<td class="r">(나무병원 등록번호: 제</td>',V('hno','나무병원 등록번호'),'<td>호)</td>')+
+R('<td class="r">나무병원 주소:</td>',V('ha','나무병원 주소',2),'<td class="r">(전화번호:</td>',V('htel','나무병원 전화번호'),'<td>)</td>')+
+R('<td class="r">나무의사 성명:</td>',V('dr','나무의사 성명'),V('sign','서명 또는 인',1,'sg'),'<td class="r">(나무의사 자격번호: 제</td>',V('dno','나무의사 자격번호'),'<td>호)</td>')+'</table></div>';
+
+$('#wrap').innerHTML=`<div class="page"><div class="sm">나무병원 서식 4호(임의서식)</div><div class="ti">소 견 서</div><div class="sm">※ [ ]에는 해당되는 곳에 √표를 합니다.</div>${[head,t1,t2,t3,t4,t5].map((t,i)=>`<div class="frm">${t}</div>`).join('')}<div class="fb">${ft}</div><div class="endline"></div></div>`;
+
+function render(){
+ $$('[data-k]').forEach(e=>{
+  const v=val(e.dataset.k);e.innerHTML='';if(!v)return;
+  if(typeof v=='string'){const d=document.createElement('div');d.className='t';d.textContent=v;e.appendChild(d);return}
+  const im=document.createElement('img');im.src=v.i;
+  const mh=e.classList.contains('dxh')?206:e.classList.contains('rxh')?46:26,cw=Math.max(40,e.clientWidth-12);
+  const sc=Math.min(1,cw/v.w,mh/v.h);im.style.width=(v.w*sc)+'px';im.style.height=(v.h*sc)+'px';im.style.display='block';e.appendChild(im)});
+ $$('.cb').forEach(e=>e.textContent=S['c'+e.parentNode.dataset.c]?'[√]':'[ ]');
+}
+render();
+addEventListener('pageshow',render);addEventListener('focus',render);addEventListener('storage',e=>{if(e.key==='treeDiagnosisProfile')render()});
+function bw(z){const s=z<1?0.9/z:1,r=document.documentElement.style;r.setProperty('--t',s+'px');r.setProperty('--k',(2*s)+'px');r.setProperty('--e',(3*s)+'px')}
+function fit(){const z=Math.min(1,(innerWidth-16)/794);$('#wrap').style.zoom=z;$('#wrap').style.margin=z<1?'8px 8px':'8px auto';bw(z)}
+fit();addEventListener('resize',fit);
+
+const ov=$('#ov'),ta=$('#ta'),cv=$('#cv'),cx=cv.getContext('2d'),dt=$('#dt');
+let cur=null,mode='type',dirty=false,dpr=1,isDate=false,cvH=200;
+function tab(t){mode=t;$$('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t==t));
+ ta.style.display=(t=='type'&&!isDate)?'block':'none';dt.style.display=(t=='type'&&isDate)?'flex':'none';cv.style.display=t=='pen'?'block':'none';
+ if(t=='pen')setup();else if(!isDate)ta.focus()}
+function setup(){cv.style.height=cvH+'px';const r=cv.getBoundingClientRect();dpr=devicePixelRatio||1;cv.width=r.width*dpr;cv.height=r.height*dpr;cx.lineWidth=4*dpr;cx.lineCap=cx.lineJoin='round';cx.strokeStyle='#111';dirty=false}
+function setDate(s){const m=/(\d+)\D+(\d+)\D+(\d+)/.exec(s||'')||[];$('#dy').value=m[1]||'';$('#dm').value=m[2]||'';$('#dd').value=m[3]||''}
+function openPop(e){cur=e.dataset.k;isDate=DATES.has(cur);const v=val(cur);$('#tt').textContent=e.dataset.l||'입력';
+ const r=e.getBoundingClientRect(),w=Math.min(720,innerWidth-28);cvH=Math.round(Math.max(120,Math.min(e.classList.contains('tall2')?340:260,w*r.height/Math.max(r.width,1))));
+ ta.style.height=e.classList.contains('tall2')?'300px':e.classList.contains('tall')?'180px':'130px';
+ ta.value=(!isDate&&typeof v=='string')?v:'';if(isDate)setDate(typeof v=='string'?v:today());
+ ov.hidden=false;tab('type')}
+document.addEventListener('click',e=>{
+ const c=e.target.closest('[data-c]');if(c){S['c'+c.dataset.c]=!S['c'+c.dataset.c];save();render();return}
+ const k=e.target.closest('[data-k]');if(k)openPop(k)});
+let dr=false;const pt=e=>{const r=cv.getBoundingClientRect();return[(e.clientX-r.left)*dpr,(e.clientY-r.top)*dpr]};
+cv.addEventListener('pointerdown',e=>{e.preventDefault();cv.setPointerCapture(e.pointerId);dr=true;dirty=true;const[x,y]=pt(e);cx.beginPath();cx.moveTo(x,y);cx.lineTo(x+.1,y+.1);cx.stroke()});
+cv.addEventListener('pointermove',e=>{if(!dr)return;e.preventDefault();const[x,y]=pt(e);cx.lineTo(x,y);cx.stroke()});
+['pointerup','pointercancel'].forEach(n=>cv.addEventListener(n,()=>dr=false));
+$$('.tabs button').forEach(b=>b.onclick=()=>tab(b.dataset.t));
+$('#dtoday').onclick=()=>setDate(today());
+$('#cl').onclick=()=>{ta.value='';if(isDate)setDate('');cx.clearRect(0,0,cv.width,cv.height);dirty=false};
+$('#cc').onclick=()=>ov.hidden=true;
+$('#ok').onclick=()=>{
+ if(mode=='type'){
+  if(isDate){const y=$('#dy').value.trim(),m=$('#dm').value.trim(),d=$('#dd').value.trim();
+   if(!y&&!m&&!d)delete S[cur];else S[cur]=(y||'')+'년 '+(m||'')+'월 '+(d||'')+'일'}
+  else{const t=ta.value.trim();if(t)S[cur]=t;else delete S[cur]}}
+ else if(dirty){const d=cx.getImageData(0,0,cv.width,cv.height).data;let x0=1e9,y0=1e9,x1=-1,y1=-1;
+  for(let y=0;y<cv.height;y++)for(let x=0;x<cv.width;x++)if(d[(y*cv.width+x)*4+3]>0){x<x0&&(x0=x);x>x1&&(x1=x);y<y0&&(y0=y);y>y1&&(y1=y)}
+  if(x1>=0){const pd=6*dpr;x0=Math.max(0,x0-pd);y0=Math.max(0,y0-pd);x1=Math.min(cv.width,x1+pd);y1=Math.min(cv.height,y1+pd);
+   const o=document.createElement('canvas');o.width=x1-x0;o.height=y1-y0;o.getContext('2d').drawImage(cv,x0,y0,o.width,o.height,0,0,o.width,o.height);
+   S[cur]={i:o.toDataURL('image/png'),w:o.width/dpr,h:o.height/dpr}}}
+ save();render();ov.hidden=true};
+let rc=0;$('#br').onclick=()=>{if(!rc){rc=1;$('#br').textContent='한 번 더 누르면 초기화';setTimeout(()=>{rc=0;$('#br').textContent='초기화'},3000)}else{if(window.TreeDocs)TreeDocs.detach();S={};save();render();rc=0;$('#br').textContent='초기화'}};
+
+const say=t=>$('#msg').textContent=t;
+async function snap(){const w=$('#wrap'),z=w.style.zoom;w.style.zoom=1;bw(1);document.body.classList.add('exp');const o=[];
+ try{for(const p of $$('.page')){const c=await html2canvas(p,{scale:2,backgroundColor:'#fff'});o.push({u:c.toDataURL('image/jpeg',.92),w:c.width,h:c.height})}}
+ finally{w.style.zoom=z;bw(parseFloat(z)||1);document.body.classList.remove('exp')}return o}
+async function saveLocal(name,b){
+ const f=new File([b],name,{type:b.type});
+ if(navigator.canShare&&navigator.canShare({files:[f]})){
+  try{await navigator.share({files:[f]});return}catch(e){if(e&&e.name=='AbortError')throw e}}
+ const u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),60000)}
+async function out(name,mk){let dl=null;try{if(window.claude&&claude.use)dl=await claude.use('downloads')}catch(e){}
+ try{say('만드는 중…');const b=await mk(await snap());if(dl)await dl.save({filename:name,data:b});else await saveLocal(name,b);say('저장 완료')}
+ catch(e){say(e&&(e.code=='declined'||e.name=='AbortError')?'저장을 취소했습니다':'저장 실패: '+((e&&e.message)||e))}}
+$('#bp').onclick=()=>out('소견서.pdf',async im=>{const d=new jspdf.jsPDF('p','mm','a4');im.forEach((g,i)=>{if(i)d.addPage();let w=200,h=w*g.h/g.w;if(h>287){h=287;w=h*g.w/g.h}d.addImage(g.u,'JPEG',(210-w)/2,5,w,h)});return d.output('blob')});
+$('#bw').onclick=()=>out('소견서.docx',async im=>{
+ const Z=new JSZip(),NS='xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"';
+ let body='',rels='';
+ im.forEach((g,i)=>{const n=i+1;Z.file('word/media/p'+n+'.jpg',g.u.split(',')[1],{base64:true});rels+=`<Relationship Id="i${n}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/p${n}.jpg"/>`;
+  let cx_=6840000,cy=cx_*g.h/g.w;if(cy>9972000){cy=9972000;cx_=cy*g.w/g.h}cx_=Math.round(cx_);cy=Math.round(cy);
+  body+=`<w:p><w:pPr>${i?'<w:pageBreakBefore/>':''}<w:spacing w:before="0" w:after="0"/></w:pPr><w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx_}" cy="${cy}"/><wp:docPr id="${n}" name="p${n}"/><a:graphic><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic><pic:nvPicPr><pic:cNvPr id="${n}" name="p${n}"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="i${n}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx_}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>`});
+ const X='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
+ Z.file('[Content_Types].xml',X+'<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="jpg" ContentType="image/jpeg"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>');
+ Z.file('_rels/.rels',X+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="r1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>');
+ Z.file('word/_rels/document.xml.rels',X+`<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${rels}</Relationships>`);
+ Z.file('word/document.xml',X+`<w:document ${NS}><w:body>${body}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="567" w:right="567" w:bottom="567" w:left="567" w:header="0" w:footer="0" w:gutter="0"/></w:sectPr></w:body></w:document>`);
+ return Z.generateAsync({type:'blob',mimeType:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'})});
+save();
+/* 문서함 연결 */
+if(window.TreeDocs)TreeDocs.register({
+ type:'opinion',label:'소견서',
+ get:()=>S,
+ set:o=>{S=o||{};save();render()},
+ reset:()=>{S={};save();render()},
+ hasContent:o=>Object.keys(o||{}).some(k=>!['date','idate','hn','hno','ha','htel','dr','dno'].includes(k)&&o[k]),
+ title:o=>{const t=k=>typeof o[k]==='string'?o[k]:'';return ['소견서',t('name')!=='정 병 욱'?t('name'):'',t('addr'),t('date')||today()].filter(Boolean).join(' · ')}
+});
+</script>
+<nav id="integratedNav"><a href="../index.html" class="">🏠<br>홈</a><a href="../diagnosis/index.html" class="">🩺<br>진단서</a><a href="../prescription/index.html" class="">💊<br>처방전</a><a href="../opinion/index.html" class="active">📝<br>소견서</a><a href="../jinryobu/index.html" class="">📋<br>진료부</a><a href="../survey/index.html" class="">🌳<br>기초조사</a><a href="../profile.html" class="">👤<br>기본정보</a><a href="../manager.html" class="">📁<br>자료관리</a><a href="../resources.html" class="">🔎<br>생물정보</a></nav>
+<script src="../supabase-config.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../sync.js"></script><script src="../bio-search.js"></script>
+</body></html>

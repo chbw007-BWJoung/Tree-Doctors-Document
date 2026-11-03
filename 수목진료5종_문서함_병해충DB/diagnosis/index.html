@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>진단서 (산림보호법 시행규칙 별지 제10호의19서식)</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#e9e9ec;--ink:#111}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);font-family:"Noto Sans KR","Malgun Gothic",sans-serif;color:var(--ink)}
+.wrap{overflow-x:auto;padding:12px}
+.paper{background:#fff;width:794px;min-height:1123px;margin:0 auto;padding:53px 44px 20px;box-sizing:border-box;color:#111}
+.top{font-size:13px;border:1px solid #111;border-bottom:0;padding:6px 8px}
+h1{margin:0;border:1px solid #111;border-bottom:0;text-align:center;font-size:26px;letter-spacing:14px;padding:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+td{border:1px solid #111;padding:4px 6px;vertical-align:middle}
+.h{background:#f3f3f3;text-align:center;white-space:nowrap;width:1%}
+.note{border-bottom:0;font-size:12px}
+.top,h1{border-left:0;border-right:0;border-top:0}
+.paper table:first-of-type tr:first-child td{border-top:0}
+.paper table~table{margin-top:5px}
+.paper table{width:calc(100% + 4px);margin:0 -2px;clip-path:inset(0 2px)}
+.f{position:relative;min-height:30px;display:flex;align-items:flex-start;gap:2px}
+.f textarea{flex:1;border:0;outline:0;resize:none;font:inherit;background:transparent;color:inherit;padding:2px;min-height:26px;overflow:hidden;width:100%}
+.f textarea{cursor:pointer}.f textarea::placeholder{color:#b5b5b5;font-size:12px}
+.f textarea:focus{background:#fffbe0}
+.f img{max-width:100%;display:block}
+.pen{border:1px solid #bbb;background:#fff;border-radius:6px;font-size:13px;padding:2px 5px;cursor:pointer;flex:none;color:#333}
+.big textarea{min-height:236px}.mid textarea{min-height:60px}
+.chk{cursor:pointer;user-select:none;font-size:14px;margin-right:6px;display:inline-block;padding:2px 0}
+.chk b{display:inline-block;width:1.5em;text-align:center;font-weight:700;color:#0a5}
+.date{position:relative;display:inline-block;cursor:pointer;padding:2px 4px;border-bottom:1px dashed #888}
+.cal{font-style:normal;margin-left:4px;border:1px solid #bbb;border-radius:6px;padding:0 4px;font-size:13px}.date input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
+div.issue .date{border-bottom:0}
+div.issue{text-align:center;padding:3px 14px;margin-top:5px;line-height:29.4px;font-size:14px;border-top:1px solid #111;border-bottom:1px solid #111}
+.foot{margin-top:0!important}.foot tr:first-child td{border-top:0}
+.foot td{line-height:2.1}
+.foot .f{display:inline-flex;min-width:170px;vertical-align:middle;border-bottom:0;min-height:24px}
+.foot .date{border-bottom:0}
+
+.g{display:flex;flex-direction:column;gap:2px;line-height:1.4}.g .gr{display:flex;align-items:center;gap:8px;white-space:nowrap}.g .gr>span:first-child{flex:none}.g .rt{margin-left:auto}
+.g .f{min-height:22px}.g .f textarea{min-height:20px;padding:0 2px}.g .pen{padding:0 4px;line-height:1.2}
+.g .f{min-width:0;display:flex}.g .fw{flex:0 1 auto;width:176px}.g .fw textarea{white-space:pre;overflow:hidden}.g .p{display:flex;align-items:center;gap:4px;white-space:nowrap;flex:none}.g .sg{width:76px;flex:none;min-width:76px}.g .sg textarea::placeholder{font-size:11px}.g .sm{width:110px;flex:none;min-width:110px}
+.foot textarea{min-height:22px}
+.spec{font-size:12px;text-align:right;margin-top:6px}
+.sheet{position:relative;margin-top:14px}
+.stitle{margin:0 0 14px;text-align:center;font-size:24px;font-weight:700;letter-spacing:10px;padding:6px 0 10px;border-bottom:1px solid #111}
+.slot{margin-bottom:22px}
+.ph{position:relative;display:flex;align-items:center;justify-content:center;height:400px;border:1px solid #111;background:#fafafa;cursor:pointer;overflow:hidden}
+.ph input{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer;font-size:0}
+.ph img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.ph img:not([src]){display:none}
+.ph .hint{color:#b5b5b5;font-size:14px}.ph.has .hint{display:none}
+.cap{margin-top:6px;min-height:44px}.cap textarea{text-align:center}
+.lay{position:absolute;top:8px;left:8px;display:flex;align-items:center;gap:4px;font-size:12px;color:#333}.lay button{border:1px solid #bbb;background:#fff;border-radius:6px;font-size:12px;padding:3px 9px;cursor:pointer;color:#333}.lay button.on{background:#1b5e20;border-color:#1b5e20;color:#fff;font-weight:700}.sheet[data-n="2"] .x4{display:none}.sheet[data-n="4"] .slots{display:grid;grid-template-columns:1fr 1fr;gap:0 14px;align-items:start}.sheet[data-n="4"] .slot{margin-bottom:14px;min-width:0}.sheet[data-n="4"] .ph{height:260px}.del{position:absolute;top:8px;right:8px;border:1px solid #bbb;background:#fff;border-radius:6px;font-size:12px;padding:3px 8px;cursor:pointer;color:#333}
+#cf{z-index:20}
+#modal,#cf{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:100000;padding:12px;box-sizing:border-box}
+#modal .box,#cf .box{background:#fff;color:#111;border-radius:10px;padding:10px;width:min(760px,100%)}
+canvas{width:100%;height:260px;border:1px solid #888;border-radius:6px;touch-action:none;background:#fff;display:block}
+#cv{display:none}#cv.show{display:block}
+.seg{display:flex;gap:6px;margin-bottom:8px}.seg button{flex:1;padding:8px;border-radius:6px;border:1px solid #888;background:#f4f4f4;color:#111;font-size:14px;cursor:pointer}.seg button.on{background:#0a5;color:#fff;border-color:#0a5}
+#kt{width:100%;box-sizing:border-box;font:16px/1.5 inherit;font-family:inherit;border:1px solid #888;border-radius:6px;padding:8px;min-height:130px;resize:vertical;color:#111;background:#fff}
+.bar{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
+.bar button{padding:8px 16px;border-radius:6px;border:1px solid #888;background:#f4f4f4;font-size:14px;cursor:pointer}
+.bar .ok{background:#0a5;color:#fff;border-color:#0a5}
+.tools{max-width:794px;margin:0 auto 8px;display:flex;gap:8px;justify-content:flex-end}
+.tools button{padding:8px 14px;border-radius:6px;border:1px solid #888;background:#fff;color:#111;font-size:14px;cursor:pointer}
+@page{size:A4;margin:10mm}
+@media print{.hint,.del,.lay,#addbar{display:none!important}.sheet{break-before:page;margin-top:0}.f textarea::placeholder,.g .sg textarea::placeholder{color:transparent}html,body{width:190mm;min-width:190mm}html,body{height:auto}body{background:#fff}.wrap{padding:0;overflow:visible}.paper{padding:10mm 0 0;width:190mm;min-height:0;margin:0}.pen,.tools,.np,.cal,.date input{display:none}.date{border:0}.f textarea:focus{background:none}}
+</style><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style id="integrated-nav-style">
+#integratedNav{position:fixed;left:0;right:0;bottom:0;z-index:99999;background:rgba(255,255,255,.97);border-top:1px solid #d8dee8;display:flex;justify-content:center;gap:6px;padding:7px 8px calc(7px + env(safe-area-inset-bottom));box-shadow:0 -3px 14px rgba(0,0,0,.08);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+#integratedNav a{flex:1;max-width:150px;text-decoration:none;text-align:center;color:#344054;background:#f5f7fa;border-radius:12px;padding:8px 4px;font-size:12px;font-weight:700;line-height:1.25}
+#integratedNav a.active{background:#173f5f;color:#fff}
+body{padding-bottom:78px!important}
+@media print{#integratedNav{display:none!important}body{padding-bottom:0!important}}
+</style>
+</head><body>
+<div class="wrap">
+<div class="tools"><button id="ai" style="display:none">사진 설명으로 진단결과 작성</button><button id="pd" style="display:none">PDF로 저장</button><button id="wd" style="display:none">Word로 저장</button><button onclick="window.print()">인쇄 / PDF 저장</button><button onclick="resetAll()">초기화</button></div>
+<div class="paper">
+<div class="top">■ 산림보호법 시행규칙 [별지 제10호의19서식] &lt;개정 2023. 6. 26.&gt;</div>
+<h1>진 단 서</h1>
+<table>
+<tr><td colspan="5" class="note">※ [&nbsp;&nbsp;]에는 해당되는 곳에 √표를 합니다.<span class="np"> (칸을 탭하면 체크/해제)</span></td></tr>
+<tr>
+<td class="h" rowspan="2">진단 일자</td>
+<td rowspan="2"><span class="date" data-d="d1"><span></span><i class="cal">📅</i><input type="date"></span></td>
+<td rowspan="2" style="white-space:nowrap"><span class="chk" data-k="owner">[<b></b>]소유자</span><br><span class="chk" data-k="mgr">[<b></b>]관리자</span></td>
+<td class="h">성명</td><td><div class="f"><textarea rows="1" data-k="name" placeholder="탭하여 입력"></textarea></div></td></tr>
+<tr><td class="h">전화번호</td><td><div class="f"><textarea rows="1" data-k="tel" placeholder="탭하여 입력" inputmode="tel"></textarea></div></td></tr>
+</table>
+<table style="border-top:0">
+<tr><td class="h" rowspan="2" style="width:70px">수목의<br>표시</td><td class="h">소 재 지</td><td><div class="f"><textarea rows="1" data-k="addr" placeholder="탭하여 입력"></textarea></div></td><td class="h">수목의 종류</td><td><div class="f"><textarea rows="1" data-k="species" placeholder="탭하여 입력"></textarea></div></td></tr>
+<tr><td class="h">본수 또는<br>식재면적</td><td><div class="f"><textarea rows="1" data-k="qty" placeholder="탭하여 입력"></textarea></div></td><td class="h">식재연도 또는<br>수목의 나이</td><td><div class="f"><textarea rows="1" data-k="age" placeholder="탭하여 입력"></textarea></div></td></tr>
+</table>
+<table style="border-top:0">
+<tr><td class="h" rowspan="3" style="width:70px">수목의<br>상태</td><td class="h" style="width:90px">잎</td><td><div class="f mid"><textarea data-k="leaf" placeholder="탭하여 입력"></textarea></div></td></tr>
+<tr><td class="h">줄기 및<br>수간</td><td><div class="f mid"><textarea data-k="stem" placeholder="탭하여 입력"></textarea></div></td></tr>
+<tr><td class="h">뿌리</td><td><div class="f mid"><textarea data-k="root" placeholder="탭하여 입력"></textarea></div></td></tr>
+</table>
+<table style="border-top:0">
+<tr><td class="h" style="width:70px">진단<br>결과</td><td><div class="f big"><textarea data-k="result" placeholder="탭하여 입력"></textarea></div></td></tr>
+</table>
+<div class="issue">발급 일자: <span class="date" data-d="d2"><span></span><i class="cal">📅</i><input type="date"></span></div>
+<table style="border-top:0" class="foot">
+<tr><td><div class="g">
+<div class="gr"><span>나무병원 명칭:</span><div class="f fw"><textarea rows="1" data-k="hosp" placeholder="탭하여 입력"></textarea></div><span class="p rt">(나무병원 등록번호: 제 <div class="f sm"><textarea rows="1" data-k="hno" placeholder="탭하여 입력"></textarea></div> 호)</span></div>
+<div class="gr"><span>나무병원 주소:</span><div class="f fw"><textarea rows="1" data-k="haddr" placeholder="탭하여 입력"></textarea></div><span class="p rt">(전화번호: <div class="f sm"><textarea rows="1" data-k="htel" placeholder="탭하여 입력"></textarea></div>)</span></div>
+<div class="gr"><span>나무의사 성명:</span><div class="f fw"><textarea rows="1" data-k="doc" placeholder="탭하여 입력">정  병  욱</textarea></div><span class="p">(서명 또는 인) <div class="f sg"><textarea rows="1" data-k="sign" placeholder="탭하여 입력"></textarea></div></span><span class="p rt">(나무의사 자격번호: 제 <div class="f sm"><textarea rows="1" data-k="dno" placeholder="탭하여 입력"></textarea></div> 호)</span></div>
+</div></td></tr>
+</table>
+<table style="border-top:0">
+<tr><td class="h" style="width:70px">첨부서류</td><td>피해사진(근경, 원경)</td></tr>
+</table>
+<div class="spec">210㎜×297㎜[백상지(80g/㎡) 또는 중질지(80g/㎡)]</div>
+</div>
+<div id="sheets"></div>
+<div class="tools" id="addbar" style="justify-content:center"><button id="addsheet">+ 사진대지 추가</button></div>
+</div>
+
+<div id="cf"><div class="box"><p id="cfm" style="margin:6px 4px 10px;font-size:16px"></p><div class="bar"><button id="cfn">취소</button><button class="ok" id="cfy">확인</button></div></div></div>
+<div id="modal"><div class="box"><div id="mt" style="font-weight:700;font-size:16px;margin:0 2px 8px"></div><div class="seg"><button id="mk" class="on">⌨ 키보드</button><button id="mh">✎ 손글씨</button></div><textarea id="kt" rows="5"></textarea><canvas id="cv"></canvas>
+<div class="bar"><button id="clr">지우기</button><button id="cancel">취소</button><button class="ok" id="ok">입력</button></div></div></div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const pad=n=>String(n).padStart(2,'0');
+const today=()=>{const t=new Date();return t.getFullYear()+'-'+pad(t.getMonth()+1)+'-'+pad(t.getDate())};
+function showDate(el,v){const [y,m,d]=v.split('-');$('span',el).textContent=y+'년 '+pad(m)+'월 '+pad(d)+'일'}
+$$('.date').forEach(el=>{const i=$('input',el);i.value=today();showDate(el,i.value);
+ i.addEventListener('change',()=>{if(!i.value)i.value=today();showDate(el,i.value)});
+ el.addEventListener('click',()=>{try{i.showPicker&&i.showPicker()}catch(e){}})});
+$$('.chk').forEach(c=>c.addEventListener('click',()=>{const b=$('b',c);b.textContent=b.textContent?'':'√'}));
+const grow=t=>{t.style.height='auto';t.style.height=t.scrollHeight+'px';fitFoot(t)};
+// 나무병원 명칭/주소/나무의사 성명: 줄바꿈 없이 글자 폭에 맞춰 칸 폭 조정 (주소는 오른쪽으로 3cm 추가)
+function fitFoot(t){
+ const f=t.closest&&t.closest('.fw');if(!f)return;
+ const row=f.parentElement;if(!row||!row.clientWidth)return;
+ const k=t.dataset.k,cs=getComputedStyle(t),sp=document.createElement('span');
+ sp.style.cssText='position:absolute;left:-9999px;top:0;visibility:hidden;white-space:pre;font:'+cs.font+';letter-spacing:'+cs.letterSpacing;
+ sp.textContent=t.value||'';document.body.appendChild(sp);const tw=sp.getBoundingClientRect().width;sp.remove();
+ const base={hosp:176,haddr:176,doc:80}[k]||80,extra=k==='haddr'?3*96/2.54:0;
+ const want=Math.max(base,Math.ceil(tw)+10)+extra;
+ const gap=parseFloat(getComputedStyle(row).columnGap)||0;
+ let others=0;[...row.children].forEach(c=>{if(c!==f)others+=c.offsetWidth});
+ const avail=row.clientWidth-others-gap*(row.children.length-1);
+ f.style.width=Math.max(60,Math.min(want,avail))+'px';
+}
+function fitAllFoot(){document.querySelectorAll('.g .fw textarea').forEach(fitFoot)}
+addEventListener('load',fitAllFoot);addEventListener('resize',fitAllFoot);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitAllFoot);
+$$('textarea').forEach(t=>{t.addEventListener('input',()=>grow(t));grow(t)});
+
+// handwriting
+let target=null,drawing=false;const cv=$('#cv'),cx=cv.getContext('2d');
+function fit(){const r=cv.getBoundingClientRect(),d=devicePixelRatio||1;cv.width=r.width*d;cv.height=r.height*d;cx.scale(d,d);cx.lineWidth=2.5;cx.lineCap=cx.lineJoin='round';cx.strokeStyle='#111'}
+const pos=e=>{const r=cv.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]};
+cv.addEventListener('pointerdown',e=>{drawing=true;cv.setPointerCapture(e.pointerId);const[x,y]=pos(e);cx.beginPath();cx.moveTo(x,y);cx.lineTo(x+.1,y);cx.stroke()});
+cv.addEventListener('pointermove',e=>{if(!drawing)return;const[x,y]=pos(e);cx.lineTo(x,y);cx.stroke()});
+['pointerup','pointercancel'].forEach(n=>cv.addEventListener(n,()=>drawing=false));
+const L={name:'성명',tel:'전화번호',addr:'소재지',species:'수목의 종류',qty:'본수 또는 식재면적',age:'식재연도 또는 수목의 나이',leaf:'수목의 상태 - 잎',stem:'수목의 상태 - 줄기 및 수간',root:'수목의 상태 - 뿌리',result:'진단결과',hosp:'나무병원 명칭',haddr:'나무병원 주소',doc:'나무의사 성명',sign:'서명 또는 인',hno:'나무병원 등록번호',htel:'나무병원 전화번호',dno:'나무의사 자격번호'};
+let mode='k';
+function setMode(m){mode=m;$('#kt').style.display=m=='k'?'block':'none';$('#cv').classList.toggle('show',m=='h');$('#mk').classList.toggle('on',m=='k');$('#mh').classList.toggle('on',m=='h');if(m=='h')fit();else $('#kt').focus()}
+$('#mk').onclick=()=>setMode('k');$('#mh').onclick=()=>setMode('h');
+function ask(msg){return new Promise(res=>{$('#cfm').textContent=msg;const m=$('#cf');m.style.display='flex';const done=v=>{m.style.display='none';res(v)};$('#cfy').onclick=()=>done(true);$('#cfn').onclick=()=>done(false)})}
+function bindF(f){const ta=$('textarea',f);ta.readOnly=true;ta.setAttribute('inputmode','none');f.addEventListener('click',()=>{target=f;$('#mt').textContent=L[ta.dataset.k]||ta.dataset.t||'';$('#kt').inputMode=['tel','htel'].includes(ta.dataset.k)?'tel':'text';$('#kt').value=ta.value;$('#modal').style.display='flex';setMode('k')})}
+$$('.f').forEach(bindF);
+const TPL=`<div class="paper sheet" data-n="2"><button class="del">사진대지 삭제</button><div class="lay"><span>한 면에</span><button type="button" data-n="2" class="on">2장</button><button type="button" data-n="4">4장</button></div><div class="stitle">사 진 대 지</div><div class="slots">`+[0,1,2,3].map(i=>`<div class="slot${i>1?' x4':''}"><div class="ph"><span class="hint">탭하여 사진 추가</span><img alt=""><input type="file" accept="image/*"></div><div class="f cap"><textarea rows="2" placeholder="탭하여 입력" data-t="사진 설명"></textarea></div></div>`).join('')+`</div></div>`;
+// 사진대지 한 면의 사진 수(2장/4장)에 따라 실제로 쓰이는 칸만 반환
+const slotsOf=sh=>$$('.slot',sh).filter(sl=>sh.dataset.n==='4'||!sl.classList.contains('x4'));
+function bindSheet(sh){
+ $$('.f',sh).forEach(f=>{const t=$('textarea',f);t.addEventListener('input',()=>grow(t));bindF(f)});
+ $$('.ph input',sh).forEach(inp=>inp.addEventListener('change',()=>{const fl=inp.files[0];if(!fl)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,1600/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);const ph=inp.parentElement;$('img',ph).src=c.toDataURL('image/jpeg',0.85);ph.classList.add('has')};im.src=r.result};r.readAsDataURL(fl);inp.value=''}));
+ $('.del',sh).onclick=async()=>{if(await ask('이 사진대지를 삭제할까요?'))sh.remove()};
+ $$('.lay button',sh).forEach(b=>b.onclick=async()=>{const n=b.dataset.n;if(sh.dataset.n===n)return;
+  if(n==='2'&&$$('.slot.x4',sh).some(sl=>$('.ph img',sl).hasAttribute('src')||$('textarea',sl).value||$('.f img',sl))&&!await ask('3·4번째 사진은 2장 배치에서는 표시되지 않습니다. 2장으로 바꿀까요? (다시 4장으로 바꾸면 복원됩니다)'))return;
+  sh.dataset.n=n;$$('.lay button',sh).forEach(x=>x.classList.toggle('on',x===b));$$('textarea',sh).forEach(grow)});
+}
+function addSheet(scroll){const d=document.createElement('div');d.innerHTML=TPL;const sh=d.firstElementChild;$('#sheets').appendChild(sh);bindSheet(sh);if(scroll)sh.scrollIntoView({behavior:'smooth'})}
+$('#addsheet').onclick=()=>addSheet(true);
+addSheet(false);
+$('#clr').onclick=()=>{if(mode=='k')$('#kt').value='';else cx.clearRect(0,0,cv.width,cv.height)};
+$('#cancel').onclick=()=>{$('#modal').style.display='none'};
+$('#ok').onclick=()=>{
+ if(mode=='k'){const ta=$('textarea',target);ta.value=ta.rows>1||ta.closest('.mid,.big')?$('#kt').value:$('#kt').value.replace(/\s*\n\s*/g,' ');grow(ta);$('#modal').style.display='none';return}
+ let img=$('img',target);if(!img){img=new Image();target.insertBefore(img,$('textarea',target).nextSibling);img.title='탭하면 삭제';img.onclick=async e=>{e.stopPropagation();if(await ask('손글씨를 삭제할까요?'))img.remove()}}
+ img.src=cv.toDataURL('image/png');$('#modal').style.display='none'};
+async function resetAll(){if(!await ask('입력한 내용을 모두 지울까요?'))return;
+ if(window.TreeDocs)TreeDocs.detach();
+ $$('textarea').forEach(t=>{t.value=t.defaultValue;grow(t)});$$('.f img').forEach(i=>i.remove());$$('#sheets .paper').forEach(x=>x.remove());addSheet(false);$$('.chk b').forEach(b=>b.textContent='');
+ $$('.date').forEach(el=>{const i=$('input',el);i.value=today();showDate(el,i.value)})}
+
+// ---- Word(.docx) export ----
+const E=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+let IM=[];
+const run=(t,o={})=>`<w:r><w:rPr>${o.b?'<w:b/>':''}${o.sz?`<w:sz w:val="${o.sz}"/>`:''}</w:rPr>${t.split('\n').map((l,i)=>(i?'<w:br/>':'')+`<w:t xml:space="preserve">${E(l)}</w:t>`).join('')}</w:r>`;
+const par=(r,o={})=>`<w:p><w:pPr>${o.pb?'<w:pageBreakBefore/>':''}${o.bdr||''}${o.tabs||''}<w:spacing w:before="${o.sb??40}" w:after="${o.sa??40}"/>${o.jc?`<w:jc w:val="${o.jc}"/>`:''}</w:pPr>${r||''}</w:p>`;
+function pic(im,fit){const n=IM.length+1;IM.push({b:im.src.split(',')[1],e:/^data:image\/jpe?g/.test(im.src)?'jpg':'png'});let w=Math.max(im.getBoundingClientRect().width,80),h=w*im.naturalHeight/im.naturalWidth;if(fit){const k=Math.min(fit[0]/im.naturalWidth,fit[1]/im.naturalHeight);w=im.naturalWidth*k;h=im.naturalHeight*k}const cx=Math.round(w*9525),cy=Math.round(h*9525);
+ return `<w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx}" cy="${cy}"/><wp:docPr id="${n}" name="ink${n}"/><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="${n}" name="img${n}"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="rIdI${n}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"/></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r>`}
+const val=k=>{const ta=$(`[data-k="${k}"]`);let r=ta.value?run(ta.value):'';const im=$('img',ta.parentElement);if(im)r+=pic(im);return r};
+const dt=k=>$('span',$(`[data-d="${k}"]`)).textContent;
+const ck=(k,l)=>'['+($(`[data-k="${k}"]`).parentElement?'':'')+']';
+const chk=(k,l)=>{const b=$(`.chk[data-k="${k}"] b`).textContent||'\u00a0\u00a0';return `[${b}]${l}`};
+const tc=(w,c,o={})=>`<w:tc><w:tcPr><w:tcW w:w="${w}" w:type="dxa"/>${o.span?`<w:gridSpan w:val="${o.span}"/>`:''}${o.vm?`<w:vMerge${o.vm=='r'?' w:val="restart"':''}/>`:''}${o.h?'<w:shd w:val="clear" w:color="auto" w:fill="F3F3F3"/>':''}<w:vAlign w:val="center"/></w:tcPr>${c||par('')}</w:tc>`;
+const Lb=(w,t,o={})=>tc(w,par(run(t),{jc:'center'}),{h:1,...o});
+const Vl=(w,k,o={})=>tc(w,par(val(k)),o);
+const bd=n=>`<w:${n} w:val="single" w:sz="4" w:space="0" w:color="111111"/>`;
+const tbl=(ws,rows)=>`<w:tbl><w:tblPr><w:tblW w:w="${ws.reduce((a,b)=>a+b)}" w:type="dxa"/><w:tblBorders>${['top','bottom','insideH','insideV'].map(bd).join('')}</w:tblBorders><w:tblLayout w:type="fixed"/></w:tblPr><w:tblGrid>${ws.map(w=>`<w:gridCol w:w="${w}"/>`).join('')}</w:tblGrid>${rows.map(r=>`<w:tr><w:trPr><w:trHeight w:val="${r[0]}" w:hRule="atLeast"/></w:trPr>${r[1].join('')}</w:tr>`).join('')}</w:tbl>`;
+const gap=`<w:p><w:pPr><w:spacing w:before="0" w:after="0" w:line="20" w:lineRule="exact"/></w:pPr></w:p>`;
+async function buildDocx(){
+ IM=[];const R=10386;
+ const A=[1100,2000,1500,1500,4286],B=[1100,1700,2900,1700,2986],C=[1100,1500,7786];
+ const owner=tc(A[2],par(run(chk('owner','소유자'))+'<w:r><w:br/></w:r>'+run(chk('mgr','관리자'))),{});
+ let body=par(run('■ 산림보호법 시행규칙  [별지 제10호의19서식] <개정 2023. 6. 26.>',{sz:18}),{sb:567})+
+ par(run('진  단  서',{b:1,sz:44}),{jc:'center',sb:200,sa:200})+
+ par(run('※ [  ]에는 해당되는 곳에 √표를 합니다.',{sz:18}),{sb:0})+
+ tbl(A,[[500,[Lb(A[0],'진단 일자',{vm:'r'}),tc(A[1],par(run(dt('d1')),{jc:'center'}),{vm:'r'}),tc(A[2],par(run(chk('owner','소유자'))+'<w:r><w:br/></w:r>'+run(chk('mgr','관리자'))),{vm:'r'}),Lb(A[3],'성명'),Vl(A[4],'name')]],
+  [500,[tc(A[0],'',{vm:'c'}),tc(A[1],'',{vm:'c'}),tc(A[2],'',{vm:'c'}),Lb(A[3],'전화번호'),Vl(A[4],'tel')]]])+gap+
+ tbl(B,[[500,[Lb(B[0],'수목의 표시',{vm:'r'}),Lb(B[1],'소 재 지'),Vl(B[2],'addr'),Lb(B[3],'수목의 종류'),Vl(B[4],'species')]],
+  [500,[tc(B[0],'',{vm:'c'}),Lb(B[1],'본수 또는 식재면적'),Vl(B[2],'qty'),Lb(B[3],'식재연도 또는 수목의 나이'),Vl(B[4],'age')]]])+gap+
+ tbl(C,[[900,[Lb(C[0],'수목의 상태',{vm:'r'}),Lb(C[1],'잎'),Vl(C[2],'leaf')]],[900,[tc(C[0],'',{vm:'c'}),Lb(C[1],'줄기 및 수간'),Vl(C[2],'stem')]],[900,[tc(C[0],'',{vm:'c'}),Lb(C[1],'뿌리'),Vl(C[2],'root')]]])+gap+
+ tbl([1100,9286],[[3300,[Lb(1100,'진단결과'),Vl(9286,'result')]]])+
+ par(run('발급 일자: '+dt('d2')),{jc:'center',sb:160,sa:160,bdr:'<w:pBdr><w:top w:val="single" w:sz="6" w:space="4" w:color="111111"/><w:bottom w:val="single" w:sz="6" w:space="4" w:color="111111"/></w:pBdr>'});
+ const tab=`<w:tabs><w:tab w:val="right" w:pos="${R}"/></w:tabs>`,o={tabs:tab,sb:80,sa:80};
+ body+=par(run('나무병원 명칭: ')+val('hosp')+'<w:r><w:tab/></w:r>'+run('(나무병원 등록번호: 제 ')+val('hno')+run(' 호)'),o)+
+ par(run('나무병원 주소: ')+val('haddr')+'<w:r><w:tab/></w:r>'+run('(전화번호: ')+val('htel')+run(')'),o)+
+ par(run('나무의사 성명: ')+val('doc')+run('  (서명 또는 인) ')+val('sign')+'<w:r><w:tab/></w:r>'+run('(나무의사 자격번호: 제 ')+val('dno')+run(' 호)'),o)+
+ tbl([1100,9286],[[500,[Lb(1100,'첨부서류'),tc(9286,par(run('피해사진(근경, 원경)')))]]])+
+ par(run('210㎜×297㎜[백상지(80g/㎡) 또는 중질지(80g/㎡)]',{sz:16}),{jc:'right'});
+ body+=$$('#sheets .paper').map(sh=>{let x=par(run('사  진  대  지',{b:1,sz:36}),{jc:'center',sb:667,sa:240,pb:1});
+  const four=sh.dataset.n==='4',cell=sl=>{const im=$('.ph img',sl),ta=$('textarea',sl),ci=$('.f img',sl);
+   return par(im.hasAttribute('src')?pic(im,four?[320,230]:[680,370]):run('(사진 없음)'),{jc:'center',sb:120,sa:60})+
+    par((ta.value?run(ta.value):'')+(ci?pic(ci):''),{jc:'center',sb:20,sa:four?160:260})};
+  const sl=slotsOf(sh);
+  if(!four){sl.forEach(e=>{x+=cell(e)});return x}
+  const W=5193,tcx=e=>`<w:tc><w:tcPr><w:tcW w:w="${W}" w:type="dxa"/></w:tcPr>${e?cell(e):par('')}</w:tc>`;
+  x+=`<w:tbl><w:tblPr><w:tblW w:w="${W*2}" w:type="dxa"/><w:tblLayout w:type="fixed"/></w:tblPr><w:tblGrid><w:gridCol w:w="${W}"/><w:gridCol w:w="${W}"/></w:tblGrid>`+
+   [0,2].map(r=>`<w:tr><w:trPr><w:cantSplit/></w:trPr>${tcx(sl[r])}${tcx(sl[r+1])}</w:tr>`).join('')+`</w:tbl>`+par('',{sb:0,sa:0});
+  return x}).join('');
+ const NS='xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"';
+ const doc=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document ${NS}><w:body>${body}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="850" w:right="760" w:bottom="850" w:left="760" w:header="400" w:footer="400" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+ const z=new JSZip(),H='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>';
+ z.file('[Content_Types].xml',H+'<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Default Extension="jpg" ContentType="image/jpeg"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>');
+ z.file('_rels/.rels',H+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>');
+ z.file('word/_rels/document.xml.rels',H+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rIdS" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>'+IM.map((x,i)=>`<Relationship Id="rIdI${i+1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/img${i+1}.${x.e}"/>`).join('')+'</Relationships>');
+ z.file('word/styles.xml',H+'<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="맑은 고딕" w:hAnsi="맑은 고딕" w:eastAsia="맑은 고딕" w:cs="맑은 고딕"/><w:sz w:val="20"/><w:lang w:eastAsia="ko-KR"/></w:rPr></w:rPrDefault></w:docDefaults></w:styles>');
+ z.file('word/document.xml',doc);
+ IM.forEach((x,i)=>z.file(`word/media/img${i+1}.${x.e}`,x.b,{base64:true}));
+ return z.generateAsync({type:'blob'});
+}
+async function buildPdf(){
+ const pdf=new window.jspdf.jsPDF({unit:'mm',format:'a4',orientation:'p'}),ps=$$('.paper');
+ for(let i=0;i<ps.length;i++){
+  const cnv=await html2canvas(ps[i],{scale:2,backgroundColor:'#ffffff',windowWidth:900,onclone:d=>{const st=d.createElement('style');st.textContent='.cal,.np,.del,.lay,.hint{display:none!important}.date{border-bottom:0!important}.paper{width:794px!important}';d.head.appendChild(st);d.querySelectorAll('textarea').forEach(t=>{if(!t.value)t.setAttribute('placeholder','')})}});
+  if(i)pdf.addPage();
+  pdf.addImage(cnv.toDataURL('image/jpeg',0.95),'JPEG',0,0,210,297);
+ }
+ return pdf.output('blob');
+}
+(async()=>{let dl=null;try{if(typeof claude!=='undefined')dl=await claude.use('downloads')}catch(e){}
+ if(typeof claude!=='undefined'&&!dl)return;
+ const save=async(n,blob)=>{if(dl)return dl.save({filename:n,data:blob});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=n;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000)};
+ const hook=(id,fn,n)=>{const b=$(id);b.style.display='';b.onclick=async()=>{try{await save(n,await fn())}catch(e){if(!(e&&e.code==='declined'))ask('저장에 실패했습니다.')}}};
+ hook('#wd',buildDocx,'진단서.docx');hook('#pd',buildPdf,'진단서.pdf');
+})();
+
+function b64blob(u){const m=u.match(/^data:([^;]+);base64,(.*)$/),bin=atob(m[2]),a=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)a[i]=bin.charCodeAt(i);return new Blob([a],{type:m[1]})}
+async function autoResult(smp,btn){
+ const items=[],imgs=[];
+ $$('#sheets .sheet').flatMap(slotsOf).forEach(sl=>{const t=$('textarea',sl).value.trim(),ci=$('.f img',sl);
+  if(t||ci){let line=t;if(ci){imgs.push(ci);line+=(t?' ':'')+'(손글씨 설명: 첨부 이미지 '+imgs.length+')'}items.push('사진 '+(items.length+1)+': '+line)}});
+ if(!items.length){await ask('사진대지의 사진 설명을 먼저 입력해 주세요.');return}
+ const ta=$('[data-k="result"]');
+ if(ta.value.trim()&&!await ask('기존 진단결과를 지우고 새로 작성할까요?'))return;
+ let lim=null;try{lim=await smp.limits()}catch(e){}
+ const useImgs=lim&&lim.images?imgs.slice(0,lim.images.maxCount||imgs.length).map(i=>b64blob(i.src)):[];
+ const sp=$('[data-k="species"]').value.trim();
+ const prompt=`다음은 수목 진단서에 첨부된 사진대지의 사진 설명이다.\n${sp?'수목의 종류(입력값): '+sp+'\n':''}${items.join('\n')}\n\n위 설명에 근거해서 진단서의 "진단결과"를 한국어로 작성하라. 반드시 아래 3줄 형식만 출력하고 다른 말은 쓰지 마라.\n수목명: \n피해 증상: \n병해충명: \n설명에서 확인되지 않는 항목은 "확인 불가"라고 적고, 설명에 없는 내용을 추측하지 마라.`;
+ const old=btn.textContent;btn.disabled=true;btn.textContent='작성 중...';
+ try{const r=await smp(prompt,{modelTier:'quick',cache:false,...(useImgs.length?{images:useImgs}:{})});
+  ta.value=(r.text||'').trim();grow(ta)}
+ catch(e){if(!e||e.code!=='not_granted')await ask('진단결과를 작성하지 못했습니다. 잠시 후 다시 시도해 주세요.')}
+ btn.disabled=false;btn.textContent=old;
+}
+(async()=>{try{if(typeof claude==='undefined')return;const smp=await claude.use('sample');if(!smp)return;const b=$('#ai');b.style.display='';b.onclick=()=>autoResult(smp,b)}catch(e){}})();
+</script>
+<script id="integrated-profile">
+(function(){
+  const KEY='treeDiagnosisProfile';
+  const readProfile=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}};
+  function applyProfile(){
+    const p=readProfile();
+    const map={hosp:p.hospitalName,hno:p.hospitalReg,haddr:p.address,htel:p.phone,doc:p.doctorName,dno:p.doctorLicense};
+    Object.entries(map).forEach(([k,v])=>{
+      const value=(v===undefined||v===null)?'':String(v).trim();
+      if(!value) return;
+      const el=document.querySelector('textarea[data-k="'+k+'"]');
+      if(!el) return;
+      // 기본정보를 통합 앱의 기준값으로 사용하여 기존 값이 있어도 동기화
+      if(String(el.value||'').trim() !== value){
+        el.value=value;
+        el.dispatchEvent(new Event('input',{bubbles:true}));
+        el.dispatchEvent(new Event('change',{bubbles:true}));
+        if(typeof grow==='function') grow(el);
+      }
+    });
+  }
+  window.applyDiagnosisProfile=applyProfile;
+  applyProfile();
+  // 초기 렌더링/브라우저 복원 후에도 다시 적용
+  setTimeout(applyProfile,50);
+  setTimeout(applyProfile,300);
+  setTimeout(applyProfile,1000);
+  window.addEventListener('pageshow',applyProfile);
+  window.addEventListener('focus',applyProfile);
+  window.addEventListener('storage',e=>{if(e.key===KEY) applyProfile();});
+})();
+</script>
+<nav id="integratedNav"><a href="../index.html" class="">🏠<br>홈</a><a href="../diagnosis/index.html" class="active">🩺<br>진단서</a><a href="../prescription/index.html" class="">💊<br>처방전</a><a href="../jinryobu/index.html" class="">📋<br>진료부</a><a href="../survey/index.html" class="">🌳<br>기초조사</a><a href="../profile.html" class="">👤<br>기본정보</a><a href="../manager.html" class="">📁<br>자료관리</a><a href="../opinion/index.html" class="">📝<br>소견서</a><a href="../resources.html" class="">🔎<br>생물정보</a></nav><script src="../supabase-config.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../sync.js"></script><script src="../bio-search.js"></script>
+<script src="../docstore.js"></script>
+<script id="docstore-adapter">
+/* 진단서: 화면 내용 ↔ 저장 데이터 변환 + 작성 중 자동 보관 + 문서 보관함 연결 */
+(function(){
+ const DRAFT='diagnosis-form-v1';
+ function inkOf(f){const im=f&&[...f.children].find(x=>x.tagName==='IMG');return im?im.src:null}
+ function setInk(f,src){[...f.children].filter(x=>x.tagName==='IMG').forEach(x=>x.remove());if(!src)return;
+  const img=new Image();img.src=src;img.title='탭하면 삭제';f.insertBefore(img,$('textarea',f).nextSibling);
+  img.onclick=async e=>{e.stopPropagation();if(await ask('손글씨를 삭제할까요?')){img.remove();saveDraft()}}}
+ function getState(){
+  const o={v:1,f:{},ink:{},chk:{},d:{},sheets:[]};
+  $$('.paper:not(.sheet) textarea[data-k]').forEach(t=>{o.f[t.dataset.k]=t.value;const s=inkOf(t.parentElement);if(s)o.ink[t.dataset.k]=s});
+  $$('.chk').forEach(c=>{o.chk[c.dataset.k]=!!$('b',c).textContent});
+  $$('.date').forEach(el=>{o.d[el.dataset.d]=$('input',el).value});
+  $$('#sheets .sheet').forEach(sh=>o.sheets.push({n:sh.dataset.n||'2',slots:$$('.slot',sh).map(sl=>{const im=$('.ph img',sl);return {img:im.getAttribute('src')||null,cap:$('textarea',sl).value,capInk:inkOf($('.f',sl))}})}));
+  return o;
+ }
+ function setState(o){
+  o=o||{};
+  $$('.paper:not(.sheet) textarea[data-k]').forEach(t=>{const k=t.dataset.k;t.value=(o.f&&k in o.f)?o.f[k]:t.defaultValue;setInk(t.parentElement,o.ink&&o.ink[k]);grow(t)});
+  $$('.chk').forEach(c=>{$('b',c).textContent=o.chk&&o.chk[c.dataset.k]?'√':''});
+  $$('.date').forEach(el=>{const i=$('input',el);i.value=(o.d&&o.d[el.dataset.d])||today();showDate(el,i.value)});
+  $$('#sheets .paper').forEach(x=>x.remove());
+  const shs=(o.sheets&&o.sheets.length)?o.sheets:[null];
+  shs.forEach(sd=>{addSheet(false);const sh=$$('#sheets .sheet').pop();if(!sd)return;
+   sh.dataset.n=sd.n==='4'?'4':'2';$$('.lay button',sh).forEach(b=>b.classList.toggle('on',b.dataset.n===sh.dataset.n));
+   $$('.slot',sh).forEach((sl,i)=>{const v=sd.slots&&sd.slots[i];if(!v)return;const ph=$('.ph',sl),im=$('img',ph);
+    if(v.img){im.src=v.img;ph.classList.add('has')}
+    const t=$('textarea',sl);t.value=v.cap||'';setInk($('.f',sl),v.capInk);grow(t)})});
+  if(typeof fitAllFoot==='function')fitAllFoot();
+  if(window.applyDiagnosisProfile)window.applyDiagnosisProfile();
+  saveDraft();
+ }
+ let tm=null;
+ function saveDraft(){clearTimeout(tm);tm=setTimeout(()=>{try{localStorage.setItem(DRAFT,JSON.stringify(getState()))}catch(e){}},600)}
+ // 작성 중인 진단서 복원 (이전에는 새로고침하면 지워졌음)
+ try{const r=localStorage.getItem(DRAFT);if(r){const o=JSON.parse(r);if(o&&o.v)setState(o)}}catch(e){}
+ ['click','change','input'].forEach(ev=>document.addEventListener(ev,saveDraft,true));
+ addEventListener('pagehide',()=>{try{localStorage.setItem(DRAFT,JSON.stringify(getState()))}catch(e){}});
+ TreeDocs.register({
+  type:'diagnosis',label:'진단서',get:getState,set:setState,
+  reset:()=>setState({v:1}),
+  hasContent:o=>Object.keys(o.f||{}).some(k=>!['hosp','hno','haddr','htel','doc','dno'].includes(k)&&String(o.f[k]||'').trim())||Object.keys(o.ink||{}).length>0||(o.sheets||[]).some(s=>s.slots.some(x=>x.img||x.cap)),
+  title:o=>{const f=o.f||{};return ['진단서',f.name,f.addr,o.d&&o.d.d1].filter(Boolean).join(' · ')}
+ });
+})();
+</script>
+</body></html>
