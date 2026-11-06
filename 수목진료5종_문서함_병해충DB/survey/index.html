@@ -44,7 +44,7 @@ td.sc1,th.sc1{min-width:64px;width:64px}
 td{height:40px;cursor:pointer;overflow:hidden;padding:0}
 td:active{background:#1a6fd433}
 td img{max-height:36px;max-width:100%;display:block;margin:auto}
-#ov{position:fixed;inset:0;background:#0009;display:none;align-items:center;justify-content:center;z-index:100000;padding:12px}
+#ov{position:fixed;inset:0;background:#0009;display:none;align-items:center;justify-content:center;z-index:9;padding:12px}
 #ov.on{display:flex}
 .pop{background:var(--pop);border-radius:14px;padding:16px;width:min(560px,100%);max-height:100%;overflow:auto}
 .pop h2{margin:0 0 10px;font-size:17px}
@@ -59,7 +59,7 @@ td.chk{font-size:20px;font-weight:700;color:var(--ac)}
 #opts button{font-size:18px;padding:12px 14px;flex:1 1 45%}
 #cvt{display:none;margin-top:8px}
 .hint{font-size:12px;opacity:.7;margin:6px 0 0}
-</style>
+#integratedNav{gap:3px!important;padding-left:6px!important;padding-right:6px!important}#integratedNav a{flex:1 0 auto!important;padding:8px 2px!important;font-size:10.5px!important;white-space:nowrap}</style>
 <style id="integrated-nav-style">
 #integratedNav{position:fixed;left:0;right:0;bottom:0;z-index:99999;background:rgba(255,255,255,.97);border-top:1px solid #d8dee8;display:flex;justify-content:center;gap:6px;padding:7px 8px calc(7px + env(safe-area-inset-bottom));box-shadow:0 -3px 14px rgba(0,0,0,.08);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 #integratedNav a{flex:1;max-width:150px;text-decoration:none;text-align:center;color:#344054;background:#f5f7fa;border-radius:12px;padding:8px 4px;font-size:12px;font-weight:700;line-height:1.25}
@@ -67,6 +67,7 @@ td.chk{font-size:20px;font-weight:700;color:var(--ac)}
 body{padding-bottom:78px!important}
 @media print{#integratedNav{display:none!important}body{padding-bottom:0!important}}
 </style>
+<script src="../sync/config.js"></script><script src="../sync/sync.js"></script>
 </head><body>
 <div class="bar"><h1>기초현황조사표(I형 집단목)</h1>
 <label>행 수 <input id="rn" type="number" min="1" max="500" style="width:70px;font:inherit;padding:7px;border:1px solid var(--ln);border-radius:8px;background:var(--bg);color:var(--fg)"></label><button id="add">적용</button><button id="csv">CSV 내보내기</button><button id="xlsx" class="p">엑셀 저장(.xlsx)</button><button id="clr">전체 지우기</button></div>
@@ -222,7 +223,7 @@ document.getElementById("add").onclick=()=>{const n=Math.max(1,Math.min(500,pars
  if(n<rows){const lost=Object.keys(data).some(k=>+k.split("_")[0]>=n);if(lost&&!confirm(`${n}행 이후에 입력한 데이터가 삭제됩니다. 계속할까요?`)){rn.value=rows;return}
   Object.keys(data).forEach(k=>{if(+k.split("_")[0]>=n)delete data[k]})}
  rows=n;rn.value=n;save();build()};
-document.getElementById("clr").onclick=()=>{if(confirm("입력한 모든 데이터를 지울까요?")){if(window.TreeDocs)TreeDocs.detach();data={};meta={};rows=30;rn.value=30;save();build()}};
+document.getElementById("clr").onclick=()=>{if(confirm("입력한 모든 데이터를 지울까요?")){data={};meta={};rows=30;rn.value=30;save();build()}};
 document.getElementById("csv").onclick=()=>{
  let out=[csvTop(),cols.map(c=>(c.grp?c.grp+" ":"")+c.n+c.u+(c.vit&&meta.vit?"("+meta.vit+")":"")).join(",")];
  for(let r=0;r<rows;r++)out.push(cols.map((c,i)=>{let v=data[r+"_"+i]||(i==0?r+1:"");if(String(v).startsWith("data:image"))v="(손글씨)";return '"'+String(v).replace(/"/g,'""')+'"'}).join(","));
@@ -303,16 +304,4 @@ build();
   }catch(e){}
 })();
 </script>
-<nav id="integratedNav"><a href="../index.html" class="">🏠<br>홈</a><a href="../diagnosis/index.html" class="">🩺<br>진단서</a><a href="../prescription/index.html" class="">💊<br>처방전</a><a href="../jinryobu/index.html" class="">📋<br>진료부</a><a href="../survey/index.html" class="active">🌳<br>기초조사</a><a href="../profile.html" class="">👤<br>기본정보</a><a href="../manager.html" class="">📁<br>자료관리</a><a href="../opinion/index.html" class="">📝<br>소견서</a><a href="../resources.html" class="">🔎<br>생물정보</a></nav><script src="../supabase-config.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../sync.js"></script><script src="../bio-search.js"></script>
-<script src="../docstore.js"></script>
-<script id="docstore-adapter">
-TreeDocs.register({
-  type:'survey',label:'기초현황조사표',
-  get:()=>({ver:3,rows,data,meta}),
-  set:o=>{o=o||{};rows=o.rows||30;data=o.data||{};meta=o.meta||{};document.getElementById("rn").value=rows;save();build()},
-  reset:()=>{data={};meta={};rows=30;document.getElementById("rn").value=30;save();build()},
-  hasContent:o=>Object.keys(o.data||{}).length>0||!!(o.meta&&o.meta.info),
-  title:o=>{const m=o.meta||{};const info=(typeof m.info==='string'&&!m.info.startsWith('data:'))?m.info:'';return ['기초현황조사표',info,m.date||today()].filter(Boolean).join(' · ')}
-});
-</script>
-</body></html>
+<nav id="integratedNav"><a href="../index.html" class="">🏠<br>홈</a><a href="../diagnosis/index.html" class="">🩺<br>진단서</a><a href="../prescription/index.html" class="">💊<br>처방전</a><a href="../sogyeon/index.html" class="">📝<br>소견서</a><a href="../jinryobu/index.html" class="">📋<br>진료부</a><a href="../survey/index.html" class="active">🌳<br>기초조사</a><a href="../profile.html" class="">👤<br>기본정보</a><a href="../manager.html" class="">📁<br>자료관리</a></nav></body></html>
