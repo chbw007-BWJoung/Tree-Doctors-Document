@@ -288,7 +288,144 @@ document.getElementById("xlsx").onclick=async()=>{
  finally{b.disabled=false;b.textContent="엑셀 저장(.xlsx)"}
 };
 build();
-</script><script>if("serviceWorker" in navigator&&location.protocol.startsWith("http")){addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}</script>
+</script>
+
+<!-- ───────── 수목 측정 앱(Supabase DB) → 조사표 가져오기 ───────── -->
+<script id="tm-import">
+(function(){
+ // 수목 측정 앱과 같은 Supabase 프로젝트 (URL·키를 바꾸면 여기도 함께 바꾸세요)
+ const TM_URL='https://ljhrhnbdqekitetzjrck.supabase.co';
+ const TM_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxqaHJobmJkcWVraXRldHpqcmNrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM4NjMyNzIsImV4cCI6MjEwOTQzOTI3Mn0.WyHD7ng1ciGB-xTayNUGFryCRg2bRPjMLSxiUuughYg';
+
+ // 조사표 열 번호 (No.=0, 수종=1, 수고=2, 흉고직경=3, 수관폭=4, 지하고=5, 비고=21)
+ const idx=n=>cols.findIndex(c=>c.grp==="수목형상"&&c.n===n);
+ const C={h:idx("수고"),dbh:idx("흉고직경"),crown:idx("수관폭"),clear:idx("지하고"),sp:1,note:cols.findIndex(c=>c.n==="비고")};
+ const MEAS=[C.h,C.dbh,C.crown,C.clear];
+
+ const $=id=>document.getElementById(id);
+ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+ // 소수점 첫째 자리 반올림 (X.X)
+ const f1=v=>(v===null||v===undefined||v===""||isNaN(+v))?"":(Math.round((+v+Math.sign(+v)*Number.EPSILON)*10)/10).toFixed(1);
+ const hm=iso=>{const d=new Date(iso);return String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0")};
+
+ const st=document.createElement("style");
+ st.textContent=`#tmOv{position:fixed;inset:0;background:#0009;display:none;align-items:center;justify-content:center;z-index:100000;padding:12px}
+#tmOv.on{display:flex}
+#tmOv .tmRow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:8px 0}
+#tmOv input[type=date],#tmOv input[type=number]{font:inherit;padding:7px;border:1px solid var(--ln);border-radius:8px;background:var(--bg);color:var(--fg)}
+#tmList{max-height:45vh;overflow:auto;border:1px solid var(--ln);border-radius:8px}
+#tmList table{min-width:0;width:100%;table-layout:auto;border-left:0}
+#tmList th{position:sticky;top:0;font-size:12px}
+#tmList td{height:34px;cursor:default;font-size:13px}
+#tmList tr.done td{opacity:.5}
+#tmToast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:#173f5f;color:#fff;padding:10px 16px;border-radius:10px;z-index:100001;font-size:14px;display:none}`;
+ document.head.appendChild(st);
+
+ const ov=document.createElement("div");ov.id="tmOv";
+ ov.innerHTML=`<div class="pop">
+  <h2>📥 측정값 가져오기</h2>
+  <div class="tmRow"><label>측정 날짜 <input type="date" id="tmDate"></label><button id="tmLoad" class="p">조회</button></div>
+  <p class="hint" id="tmMsg"></p>
+  <div id="tmList"></div>
+  <div class="tmRow">
+   <label><input type="checkbox" id="tmOw"> 기존 값 덮어쓰기</label>
+   <label><input type="checkbox" id="tmAz"> 방위각을 비고에 기록</label>
+  </div>
+  <div class="tmRow"><label>No. 없는 기록 시작 행 <input type="number" id="tmStart" min="1" max="500" style="width:70px"></label></div>
+  <p class="hint">측정 앱의 No.와 같은 번호의 행에 수종·수고·흉고직경·수관폭·지하고를 채웁니다. 이미 값이 있는 행은 '덮어쓰기'를 체크해야 바뀝니다.</p>
+  <div class="act"><button id="tmClose">닫기</button><button id="tmApply" class="p">선택 항목 채우기</button></div>
+ </div>`;
+ document.body.appendChild(ov);
+ const toast=document.createElement("div");toast.id="tmToast";document.body.appendChild(toast);
+
+ const btn=document.createElement("button");btn.id="tmImp";btn.textContent="📥 측정값 가져오기";
+ document.querySelector(".bar").insertBefore(btn,$("csv"));
+
+ let recs=[];
+ const imported=()=>new Set(Array.isArray(meta.tmImported)?meta.tmImported:[]);
+ const rowEmpty=r=>MEAS.every(c=>!data[r+"_"+c]);
+ const firstEmpty=()=>{for(let r=0;r<500;r++)if(rowEmpty(r)&&!data[r+"_"+C.sp])return r;return 0};
+ const msg=t=>$("tmMsg").textContent=t;
+
+ function open(){
+  $("tmDate").value=meta.date||today();
+  $("tmStart").value=firstEmpty()+1;
+  ov.classList.add("on");load();
+ }
+ const close=()=>ov.classList.remove("on");
+
+ async function load(){
+  const d=$("tmDate").value;if(!d)return msg("날짜를 선택하세요.");
+  const [y,m,dd]=d.split("-").map(Number);
+  const s=new Date(y,m-1,dd).toISOString(),e=new Date(y,m-1,dd+1).toISOString();
+  $("tmList").innerHTML="";recs=[];msg("불러오는 중…");
+  try{
+   const u=`${TM_URL}/rest/v1/tree_measurements?select=*&created_at=gte.${encodeURIComponent(s)}&created_at=lt.${encodeURIComponent(e)}&order=created_at.asc`;
+   const r=await fetch(u,{headers:{apikey:TM_KEY,Authorization:"Bearer "+TM_KEY}});
+   if(!r.ok)throw new Error("서버 오류 "+r.status+" "+(await r.text()).slice(0,150));
+   recs=(await r.json()).filter(x=>[x.height,x.dbh,x.crown_width,x.clear_length].some(v=>v!==null&&v!==undefined));
+  }catch(err){return msg("불러오기 실패: "+err.message)}
+  if(!recs.length)return msg("이 날짜에 저장된 측정값이 없습니다.");
+  const done=imported();
+  msg(`${recs.length}건 (회색 = 이미 가져온 기록)`);
+  let h=`<table><tr><th><input type="checkbox" id="tmAll"></th><th>No.</th><th>수종</th><th>시각</th><th>수고<br>(m)</th><th>흉고<br>(cm)</th><th>수관폭<br>(m)</th><th>지하고<br>(m)</th><th>방위<br>(°)</th></tr>`;
+  recs.forEach((x,i)=>{const dn=done.has(x.id);
+   h+=`<tr class="${dn?"done":""}"><td><input type="checkbox" class="tmChk" data-i="${i}" ${dn?"":"checked"}></td><td><b>${x.tree_no??"–"}</b></td><td>${esc(x.species??"")}</td><td>${esc(hm(x.created_at))}</td><td>${f1(x.height)}</td><td>${f1(x.dbh)}</td><td>${f1(x.crown_width)}</td><td>${f1(x.clear_length)}</td><td>${x.azimuth??""}</td></tr>`});
+  $("tmList").innerHTML=h+"</table>";
+  $("tmAll").checked=recs.every(x=>!done.has(x.id));
+  $("tmAll").onchange=e=>document.querySelectorAll(".tmChk").forEach(c=>c.checked=e.target.checked);
+ }
+
+ function apply(){
+  const sel=[...document.querySelectorAll(".tmChk")].filter(c=>c.checked).map(c=>recs[+c.dataset.i]);
+  if(!sel.length)return msg("선택된 기록이 없습니다.");
+  const ow=$("tmOw").checked,done=imported(),filled=[],skipped=[];
+  // 같은 No.가 여러 건이면 나중(최신) 기록을 사용
+  const byNo=new Map(),noNo=[],superseded=[];
+  sel.forEach(x=>{const n=parseInt(x.tree_no,10);if(n>=1&&n<=500){const prev=byNo.get(n);byNo.set(n,x);if(prev)superseded.push(prev)}else noNo.push(x)});
+  const write=(r,x)=>{
+   const put=(c,v)=>{if(v!=="")data[r+"_"+c]=v};
+   put(C.h,f1(x.height));put(C.dbh,f1(x.dbh));put(C.crown,f1(x.crown_width));put(C.clear,f1(x.clear_length));
+   const sp=(x.species||"").trim();
+   if(sp&&(ow||!data[r+"_"+C.sp]))data[r+"_"+C.sp]=sp;
+   if($("tmAz").checked&&x.azimuth!==null&&x.azimuth!==undefined&&C.note>=0){
+    const k=r+"_"+C.note,t="방위 "+x.azimuth+"°",old=data[k];
+    if(!old)data[k]=t;else if(!String(old).startsWith("data:")&&!String(old).includes(t))data[k]=old+" / "+t;
+   }
+   done.add(x.id);filled.push(r+1);
+  };
+  // 1) No.가 있는 기록 → 같은 번호 행
+  [...byNo.keys()].sort((a,b)=>a-b).forEach(n=>{
+   const r=n-1;
+   if(!ow&&!rowEmpty(r)){skipped.push(n);return}
+   if(ow)MEAS.forEach(c=>delete data[r+"_"+c]);
+   write(r,byNo.get(n));
+  });
+  // 2) No.가 없는 예전 기록 → 시작 행부터 빈 행에 차례로
+  let r=Math.max(0,Math.min(499,(parseInt($("tmStart").value)||1)-1));
+  for(const x of noNo){
+   while(r<500&&!rowEmpty(r))r++;
+   if(r>=500){skipped.push("번호없음");break}
+   write(r,x);r++;
+  }
+  superseded.forEach(x=>{if(done.has(byNo.get(parseInt(x.tree_no,10)).id))done.add(x.id)});
+  if(!filled.length)return msg("채운 행이 없습니다."+(skipped.length?` 이미 값이 있는 No.: ${skipped.join(", ")} ('기존 값 덮어쓰기'를 체크하세요)`:""));
+  const mx=Math.max(...filled);
+  if(mx>rows){rows=mx;$("rn").value=rows}
+  meta.tmImported=[...done];
+  save();build();close();
+  filled.sort((a,b)=>a-b);
+  toast.textContent=`${filled.length}건 기록 (No. ${filled.join(", ")})`+(skipped.length?` · 건너뜀: ${skipped.join(", ")}`:"");
+  toast.style.display="block";setTimeout(()=>toast.style.display="none",5000);
+  const tr=document.querySelector(`td[data-r="${filled[0]-1}"]`)?.parentElement;if(tr)tr.scrollIntoView({block:"center"});
+ }
+
+ btn.onclick=open;$("tmLoad").onclick=load;$("tmClose").onclick=close;$("tmApply").onclick=apply;
+ $("tmDate").onchange=load;
+ ov.addEventListener("click",e=>{if(e.target===ov)close()});
+})();
+</script>
+<script>if("serviceWorker" in navigator&&location.protocol.startsWith("http")){addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}</script>
 
 <script id="integrated-profile">
 (function(){
