@@ -1,9 +1,11 @@
-const CACHE='tree-diagnosis-integrated-v14';
+const CACHE='tree-diagnosis-integrated-v16';
 const ASSETS=[
  './','./index.html','./profile.html','./manager.html','./manifest.webmanifest',
  './diagnosis/','./diagnosis/index.html','./prescription/','./prescription/index.html',
  './jinryobu/','./jinryobu/index.html','./survey/','./survey/index.html','./opinion/','./opinion/index.html',
  './docstore.js','./sync.js','./supabase-config.js','./bio-search.js','./resources.html','./data/insects.json','./data/diseases.json',
+ './docs/index.json','./docs/pesticide-moa-table.pdf','./docs/insecticide-moa-summary.pdf','./docs/wood-decay-fungi.pdf','./docs/fungal-spores.pdf',
+ './docs/fungal-spores-p-1.jpg','./docs/fungal-spores-p-2.jpg','./docs/insecticide-moa-summary-p-1.jpg','./docs/insecticide-moa-summary-p-2.jpg','./docs/pesticide-moa-table-p-1.jpg','./docs/pesticide-moa-table-p-2.jpg','./docs/pesticide-moa-table-p-3.jpg','./docs/pesticide-moa-table-p-4.jpg','./docs/wood-decay-fungi-p-1.jpg',
  './icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png','./icons/apple-touch-icon.png'
 ];
 // 하나라도 실패해도 설치가 중단되지 않도록 개별 저장
