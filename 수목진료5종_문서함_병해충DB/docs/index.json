@@ -1,0 +1,51 @@
+[
+ {
+  "id": "pesticide-moa-table",
+  "title": "농약의 작용 기작 정리",
+  "category": "농약",
+  "author": "길마가지",
+  "pages": 4,
+  "file": "docs/pesticide-moa-table.pdf",
+  "images": [
+   "docs/pesticide-moa-table-p-1.jpg",
+   "docs/pesticide-moa-table-p-2.jpg",
+   "docs/pesticide-moa-table-p-3.jpg",
+   "docs/pesticide-moa-table-p-4.jpg"
+  ]
+ },
+ {
+  "id": "insecticide-moa-summary",
+  "title": "살충제 작용 기작 요약",
+  "category": "농약",
+  "author": "길마가지",
+  "pages": 2,
+  "file": "docs/insecticide-moa-summary.pdf",
+  "images": [
+   "docs/insecticide-moa-summary-p-1.jpg",
+   "docs/insecticide-moa-summary-p-2.jpg"
+  ]
+ },
+ {
+  "id": "wood-decay-fungi",
+  "title": "수목 부후병 균류의 자실체",
+  "category": "수목병",
+  "author": "길마가지",
+  "pages": 1,
+  "file": "docs/wood-decay-fungi.pdf",
+  "images": [
+   "docs/wood-decay-fungi-p-1.jpg"
+  ]
+ },
+ {
+  "id": "fungal-spores",
+  "title": "수목병해 원인 균류 포자의 생김새",
+  "category": "수목병",
+  "author": "길마가지",
+  "pages": 2,
+  "file": "docs/fungal-spores.pdf",
+  "images": [
+   "docs/fungal-spores-p-1.jpg",
+   "docs/fungal-spores-p-2.jpg"
+  ]
+ }
+]
